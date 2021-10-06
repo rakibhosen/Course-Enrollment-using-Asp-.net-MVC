@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row pt-5">
+
+        <div class="col-lg-3  text-white text-center">
+            <div class="bg-success rounded-sm p-2">
+                <h2>@ViewBag.StudentCount</h2>
+                <p>All Student</p>
+                <p><a class="text-white" href='@Url.Action("Index", "Student")'> More info <i class="fa fa-angle-double-right"></i></a> </p>
+            </div>
+        </div>
+
+        <div class="col-lg-3  text-white text-center">
+            <div class="bg-info rounded-sm p-2">
+                <h2>@ViewBag.CourseCount</h2>
+                <p>All Courses</p>
+                <p><a class="text-white" href='@Url.Action("Index", "Course")'> More info <i class="fa fa-angle-double-right"></i></a> </p>
+            </div>
+        </div>
+
+        <div class="col-lg-3  text-white text-center">
+            <div class="bg-warning rounded-sm p-2">
+                <h2>@ViewBag.StudentCount</h2>
+                <p>All Student</p>
+                <p><a class="text-white" href='@Url.Action("Index", "Student")'> More info <i class="fa fa-angle-double-right"></i></a> </p>
+            </div>
+        </div>
+
+        <div class="col-lg-3  text-white text-center">
+            <div class="bg-danger rounded-sm p-2">
+                <h2>@ViewBag.CourseCount</h2>
+                <p>All Courses</p>
+                <p><a class="text-white" href='@Url.Action("Index", "Courses")'> More info <i class="fa fa-angle-double-right"></i></a> </p>
+            </div>
+        </div>
+
+
+    </div>
+</div>

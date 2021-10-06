@@ -1,0 +1,89 @@
+﻿
+@model MvcEvidence.Models.Student
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7 mx-auto">
+            <div class="card mt-5">
+                <div class="card-header d-flex">
+                    <div class="mr-auto bd-highlight"> <strong>Create Student</strong></div>
+                    <div class=" bd-highlight"> <a href='@Url.Action("Index", "Student")' class="btn btn-info btn-sm rounded-0"><i class="fa fa-users"></i>  All Student</a></div>
+
+
+
+                </div>
+                <div class="card-body">
+                    <div class="register-form-container">
+                        @using (Html.BeginForm("Edit", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+
+                            @Html.HiddenFor(x => x.StudentId)
+
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.StudentName, new { @class = "col-form-label  col-3 text-end" })
+
+                                @Html.TextBoxFor(x => x.StudentName, new { @class = "form-control  col-9" })
+                                @Html.ValidationMessageFor(x => x.StudentName, "", new { @class = "text-danger" })
+
+                            </div>
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.EnrollmentDate, new { @class = "col-form-label  col-3 text-end" })
+
+                                @Html.TextBoxFor(x => x.EnrollmentDate, new { @class = "form-control col-9" })
+                                @Html.ValidationMessageFor(x => x.EnrollmentDate, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.CourseId, new { @class = "col-form-label  text-end col-3" })
+
+                                @Html.DropDownListFor(x => x.CourseId, new SelectList(ViewBag.Courses, "CourseId", "CourseName"), "---select--", new { @class = "form-select form-select-sm col-9" })
+                                @Html.ValidationMessageFor(x => x.CourseId, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group row d-flex justify-content-center">
+                                @Html.LabelFor(x => x.StudentImage, new { @class = "col-form-label text-end col-3" })
+
+
+                                @Html.TextBoxFor(x => x.StudentImage, new { @class = "form-control  col-9", type = "file" })
+                                @Html.ValidationMessageFor(x => x.StudentImage, "", new { @class = "text-danger" })
+                                <img src="~/Images/@ViewBag.Pic" width="80" height="80" class="img-thumbnail rounded-2 mt-3" />
+                            </div>
+                            <div class="form-group d-flex justify-content-end">
+
+
+                                <button type="submit" class="btn btn-dark btn-sm rounded-0">Save</button>
+
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+@section styles{
+    <link rel="stylesheet" href="~/Content/bootstrap-datepicker.standalone.css" />
+}
+
+@section scripts {
+
+    <script src="~/Content/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Content/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Content/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Content/Scripts/bootstrap-datepicker.js"></script>
+    <script>
+        $("#EnrollmentDate").datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    </script>
+
+}

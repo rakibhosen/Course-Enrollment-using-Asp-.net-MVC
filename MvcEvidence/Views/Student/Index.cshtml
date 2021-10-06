@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MvcEvidence.Models.Student>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-11 mx-auto">
+            <div class="card mt-5">
+                <div class="card-header d-flex">
+                    <div class="mr-auto bd-highlight"> <strong>Create Student</strong></div>
+                    <div class=" bd-highlight"> <a href='@Url.Action("Create", "Student")' class="btn btn-info btn-sm rounded-0"><i class="fa fa-plus"></i> Create Student</a></div>
+
+
+
+                </div>
+                <div class="card-body">
+                    @Html.Partial("_StudentPartial")
+
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

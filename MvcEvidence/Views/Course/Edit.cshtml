@@ -1,0 +1,62 @@
+﻿
+@model MvcEvidence.Models.Course
+@{
+    ViewBag.Title = "Course Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+            <div class="card mt-5">
+                <div class="card-header d-flex">
+                    <div class="mr-auto bd-highlight"> <strong>Create Course</strong></div>
+                    <div class=" bd-highlight"> <a href='@Url.Action("Index", "Course")' class="btn btn-info btn-sm rounded-0"><i class="fa fa-book"></i>  All Courses</a></div>
+
+
+
+                </div>
+                <div class="card-body">
+                    <div class="register-form-container">
+                        <div id="placeholder"></div>
+                        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "placeholder", OnSuccess = "onSuccess" }))
+                        {
+                            @Html.HiddenFor(x => x.CourseId)
+
+                            <div class="form-group row">
+                                @Html.LabelFor(x => x.CourseName, new { @class = "col-form-label col-4 text-end" })
+
+                                @Html.TextBoxFor(x => x.CourseName, new { @class = "form-control  col-8" })
+                                @Html.ValidationMessageFor(x => x.CourseName, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group d-flex justify-content-end">
+
+
+                                <button type="submit" class="btn btn-dark btn-sm rounded-0">Save</button>
+
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+@section scripts {
+
+    <script src="~/Content/Scripts/jquery.min.js"></script>
+    <script src="~/Content/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Content/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Content/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+
+}
